@@ -1,0 +1,8 @@
+[package]
+name = "float-traits"
+version = "0.1.0"
+authors = ["GNQG <my.t.gnq@gmail.com>"]
+
+[dependencies]
+num-traits = "^0.1.40"
+num-integer = "^0.1.32"
