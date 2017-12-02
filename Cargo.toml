@@ -1,6 +1,6 @@
 [package]
 name = "float-traits"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["GNQG <my.t.gnq@gmail.com>"]
 readme = "README.md"
 license = "MIT"
