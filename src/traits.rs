@@ -7,7 +7,8 @@ use num_integer::Integer;
 
 pub trait Abs {
     type Output: Num;
-    fn abs(self) -> Self::Output;
+    fn abs(&self) -> Self::Output;
+    fn sign(&self) -> Self::Output;
 }
 
 macro_rules! impl_abs {
@@ -15,15 +16,21 @@ macro_rules! impl_abs {
         impl Abs for $num {
             type Output = $num;
             #[inline]
-            fn abs(self) -> Self {
-                self.abs()
+            fn abs(&self) -> $num {
+                self.clone().abs()
+            }
+            fn sign(&self) -> $num {
+                self.signum()
             }
         }
         impl<'a> Abs for &'a $num {
             type Output = $num;
             #[inline]
-            fn abs(self) -> $num {
+            fn abs(&self) -> $num {
                 self.clone().abs()
+            }
+            fn sign(&self) -> $num {
+                self.clone().signum()
             }
         }
     )*)
