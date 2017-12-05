@@ -204,8 +204,8 @@ impl_fxx!(f64, i32, [-1022, 1023], 53);
 mod tests {
     #[test]
     fn f64abs() {
-        use super::Abs;
-        assert!((-1.0).abs() == <&f64 as Abs>::abs(&-1.0f64));
-        assert!((-1.0).abs() == <f64 as Abs>::abs(-1.0f64));
+        use super::{Abs,IEEE754Float};
+        assert!((-1.0).abs() == <f64 as Abs>::abs(&-1.0f64));
+        assert!(f64::nan().is_nan());
     }
 }
